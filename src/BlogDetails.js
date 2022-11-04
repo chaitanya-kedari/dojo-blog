@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const BlogDetails = () => {
     const { id } = useParams();
-    const { data: blog, isPending, error } = useFetch('http://localhost:8000/blogs/' + id)
+    const { data: blog, isPending, error } = useFetch('https://kc-fitness-app-server.herokuapp.com/blogs/' + id)
     
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);

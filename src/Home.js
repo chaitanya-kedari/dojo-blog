@@ -1,15 +1,19 @@
-const Home = () => {
+import BlogList from "./BlogList";
+import useFetch from "./useFetch";
+import React from "react";
 
-    const handleClick = () => {
-        console.log('Hello, ninjas!');
-    }
+const Home = () => {
+    const { data: blogs, isPending, error } = useFetch('http://localhost:8000/blogs');
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <button onClick = {handleClick} >click me</button>
+            { error && <div> { error.message } </div> }
+            { isPending && <div> Loading... </div> }
+            { blogs && <BlogList blogs={blogs} title='All blogs' /> }
         </div>
      );
 }
  
 export default Home;
+
+//#17 - async not to be used in useEffect --?

@@ -1,18 +1,23 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
     return ( 
     <nav className="navbar">
         <h1>The DoJo blog</h1>
         <div className="links">
-            <a href="/">Home</a>
-            <a href="/create" style= {{
+            <Link to="/">Home</Link>
+            <Link to="/create" style= {{
                 color: 'white',
                 backgroundColor: '#f1356d',
                 borderRadius: '8px'
-            }} >New Blog</a> 
-            {/* returning these require new pages creation, TBC later */}
+            }} >New Blog</Link> 
         </div>
     </nav>    
      );
 }
  
 export default Navbar;
+
+// why use nav?
+// how are buttons created without using buttons, just href

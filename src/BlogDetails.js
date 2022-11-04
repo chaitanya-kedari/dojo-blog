@@ -2,16 +2,17 @@ import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { config } from "./config";
 
 const BlogDetails = () => {
     const { id } = useParams();
-    const { data: blog, isPending, error } = useFetch('https://kc-fitness-app-server.herokuapp.com/blogs/' + id)
+    const { data: blog, isPending, error } = useFetch(config.blog_server + "/" + id)
     
     const history = useHistory();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleClick = () => {
-        fetch('http://localhost:8000/blogs/' + id, {
+        fetch(config.blog_server + "/" + id, {
             method:'DELETE'
         }).then(() => {
             setIsSubmitting(true);
